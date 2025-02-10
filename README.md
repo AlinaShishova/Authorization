@@ -7,30 +7,56 @@
       a) Django — это популярный веб-фреймворк для создания веб-приложений на Python.
 
       b) psycopg2 — это библиотека для взаимодействия с базой данных PostgreSQL.
-3. Настроить PostgreSQL, запомнить имя пользователя (обычно postgres) и пароль PostgreSQL. Я скачала pqAdmin4 для визуального отображения БД. Это необходимо для подключения приложения к БД в settings проекта. <img width="457" alt="image" src="https://github.com/user-attachments/assets/f164bffb-88b8-44a3-9ec8-165fea46fc48" />
+3. Настроить PostgreSQL, запомнить имя пользователя (обычно postgres) и пароль PostgreSQL. Я скачала pqAdmin4 для визуального отображения БД. Это необходимо для подключения приложения к БД в settings проекта.
+    <img width="457" alt="image" src="https://github.com/user-attachments/assets/f164bffb-88b8-44a3-9ec8-165fea46fc48" />
 
    Рис.1 - settings.py в Project
-4. Создать базу данных. У меня это "Project". Все остальные манипуляции с вводом пользователей (их логинов и паролей) производится через админку Django или Shell (см. пункт 10)
-5. Выполнить миграции через команды:
+5. Создать базу данных. У меня это "Project". Все остальные манипуляции с вводом пользователей (их логинов и паролей) производится через админку Django или Shell (см. пункт 10)
+6. Выполнить миграции через команды:
    ```
    python manage.py makemigrations
    python manage.py
    ```
-6. Создать суперпользователя (для доступа в админку):
+7. Создать суперпользователя (для доступа в админку):
    ```
    python manage.py createsuperuser
    ```
-7. Следовать подсказкам: указать логин, пароль, подтвердить пароль.
-8. Запустить сервер:
+8. Следовать подсказкам: указать логин, пароль, подтвердить пароль.
+9. Запустить сервер:
    ```
    python manage.py runserver
    ```
-9. Перейти по адресу http://127.0.0.1:8000/accounts/login/ для проверки страницы авторизации
+10. Перейти по адресу http://127.0.0.1:8000/accounts/login/ для проверки страницы авторизации
    
-   <img width="227" alt="image" src="https://github.com/user-attachments/assets/8b56a90b-1b9a-436f-91f1-2dfc34413408" />
+      <img width="227" alt="image" src="https://github.com/user-attachments/assets/8b56a90b-1b9a-436f-91f1-2dfc34413408" />
 
    Рис. 2 - Страничка авторизации
 
-10. Чтобы создать записи о пользователях можно воспользоваться 2мя способами:
+11. Чтобы создать записи о пользователях можно воспользоваться 2мя способами:
 
-    а) Админкой Django
+    а) Админкой Django:
+       - Зайти по адреcу http://127.0.0.1:8000/admin/, авторизоваться через логин пароль суперпользователя
+
+         <img width="940" alt="image" src="https://github.com/user-attachments/assets/d4f85c8b-6283-4291-a580-2bcd60e40f54" />
+       - При нажатии на custom users +add можно добавить пользователя
+
+          <img width="762" alt="image" src="https://github.com/user-attachments/assets/410a1e47-35d4-447e-b3c1-5620c57ba39f" />
+    б) Через Shell:
+       - Запустить shell
+         ```
+         python manage.py shell
+         ```
+    - далее команды:
+         ```
+         from accounts.models import User
+         from django.contrib.auth.hashers import make_password
+
+         user = CustomUser(login="user2", password=make_password("qwe123"))
+         user.save()
+         ```
+         
+
+
+         
+
+    
