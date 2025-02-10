@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+</head>
+<body>
+    <h2>Вход в систему</h2>
+
+    <!-- Форма авторизации -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Выводим форму, отобразив поля и ошибки -->
+        
+        <button type="submit">Войти</button>
+    </form>
+
+    {% if form.non_field_errors %}
+        <div class="error">
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>
