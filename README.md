@@ -8,6 +8,7 @@
 
       b) psycopg2 — это библиотека для взаимодействия с базой данных PostgreSQL.
 3. Настроить PostgreSQL, запомнить имя пользователя (обычно postgres) и пароль PostgreSQL. Я скачала pqAdmin4 для визуального отображения БД. Это необходимо для подключения приложения к БД в settings проекта.
+   
     <img width="457" alt="image" src="https://github.com/user-attachments/assets/f164bffb-88b8-44a3-9ec8-165fea46fc48" />
 
    Рис.1 - settings.py в Project
