@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3ew2y+d+0l2688otf+n6^#a%!cafys#=#0y9zxm%$fr!tt2_+$'
+SECRET_KEY = 'django-insecure-%mho6hh98h+7ca4k*w_)99w=f#lne)o*3#y+#vu$clp^+*h9a#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',  # добавили наш модуль в основнеое приложение
+    #наше приложение
+    'accounts',
 ]
+#Используем свою модель пользователей
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,19 +77,20 @@ WSGI_APPLICATION = 'Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-
+#Настройки подключения к PostgreSQL
 # Изменили подключение к БД (по умолчанию было подключение к SQLLite) 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Accounts',  # Имя базы данных
-        'USER': 'postgres',  # Имя пользователя PostgreSQL
-        'PASSWORD': 'pas123',  # Пароль пользователя PostgreSQL
+        'NAME': 'Project', # Имя базы данных
+        'USER': 'postgres', # Имя пользователя PostgreSQL
+        'PASSWORD': 'pas123',# Пароль пользователя PostgreSQL
         'HOST': 'localhost',  # Адрес сервера PostgreSQL
         'PORT': '5432',  # Порт для подключения
+
+
     }
 }
-
 
 
 # Password validation
