@@ -55,8 +55,9 @@
          user = CustomUser(login="user2", password=make_password("qwe123"))
          user.save()
          ```
-         
+ ___        
 ### Пояснение 
+
 Структура каталогов и файлов
 
 <img width="227" alt="image" src="https://github.com/user-attachments/assets/0a59e8cd-eac5-4d37-a737-0c9af518d4df" />
