@@ -38,11 +38,12 @@
     а) Админкой Django:
        - Зайти по адреcу http://127.0.0.1:8000/admin/, авторизоваться через логин пароль суперпользователя
 
-         <img width="940" alt="image" src="https://github.com/user-attachments/assets/d4f85c8b-6283-4291-a580-2bcd60e40f54" />
+   <img width="940" alt="image" src="https://github.com/user-attachments/assets/d4f85c8b-6283-4291-a580-2bcd60e40f54" />
        - При нажатии на custom users +add можно добавить пользователя
 
-          <img width="762" alt="image" src="https://github.com/user-attachments/assets/410a1e47-35d4-447e-b3c1-5620c57ba39f" />
-    б) Через Shell:
+   <img width="762" alt="image" src="https://github.com/user-attachments/assets/410a1e47-35d4-447e-b3c1-5620c57ba39f" />
+
+   б) Через Shell:
        - Запустить shell
          ```
          python manage.py shell
