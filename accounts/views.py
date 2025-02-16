@@ -1,7 +1,7 @@
 # accounts/views.py
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
+from django.shortcuts import render, redirect # Для отображения страницы и перенаправления
+from django.contrib.auth import authenticate, login # Функции аутентификации и входа
+from django.contrib import messages  # Для отображения сообщений об ошибках
 
 def user_login(request):
     """
