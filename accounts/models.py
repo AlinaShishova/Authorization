@@ -48,11 +48,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     PermissionsMixin добавляет поддержку прав и групп пользователей.
     """
     
-    username = models.CharField(max_length=150, unique=True)  # Логин пользователя (уникальный)
+    username = models.CharField(max_length=150, unique=True, verbose_name=("Имя пользователя"))  # Логин пользователя (уникальный)
     
     # Дополнительные поля
-    is_active = models.BooleanField(default=True)  # Активен ли пользователь
-    is_staff = models.BooleanField(default=False)  # Может ли пользователь заходить в админку
+    is_active = models.BooleanField(default=True, verbose_name=("Активен?"))  # Активен ли пользователь
+    is_staff = models.BooleanField(default=False, verbose_name=("Администратор?"))  # Может ли пользователь заходить в админку
 
     # Указываем кастомный менеджер пользователей
     objects = CustomUserManager()
@@ -68,3 +68,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         Возвращает строковое представление пользователя (его логин).
         """
         return self.username
+
+    class Meta:
+        verbose_name = ('Пользователь')  # Единственное число
+        verbose_name_plural = ('Пользователи')  # Множественное число

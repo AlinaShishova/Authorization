@@ -1,0 +1,34 @@
+{% extends "page1.html" %}
+
+{% load group_filters %}  <!-- Загружаем наш фильтр in_group -->
+
+{% block title %}Страница 2{% endblock %}
+{% block header %}
+<h1>Страница 2</h1>
+{% endblock %}
+{% block content %}
+<!-- Кнопка "Добавить" активна, если пользователь в группе "Создатели" -->
+{% if user.is_authenticated and user|in_group:"Создатели" %}
+<a href="{% url 'add_item2' %}"><button>Добавить</button></a>
+{% else %}
+<button disabled>Добавить</button>
+{% endif %}
+
+<!-- Кнопка "Редактировать" активна, если пользователь в группе "Редакторы" -->
+{% if user.is_authenticated and user|in_group:"Редакторы" %}
+<a href="{% url 'edit_item2' %}"><button>Редактировать</button></a>
+{% else %}
+<button disabled>Редактировать</button>
+{% endif %}
+
+<!-- Кнопка "Удалить" активна, если пользователь в группе "Удаляющие" -->
+{% if user.is_authenticated and user|in_group:"Удаляющие" %}
+<button onclick="openModal('deleteModal')">Удалить</button>
+{% else %}
+<button disabled>Удалить</button>
+{% endif %}
+<hr>
+<a href="{% url 'page1' %}">Перейти на Страницу 1</a> | 
+<a href="{% url 'page3' %}">Перейти на Страницу 3</a>
+{% endblock %}
+

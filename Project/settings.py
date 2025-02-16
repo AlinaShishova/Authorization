@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #наше приложение
     'accounts',
+    'cubs',
 ]
 #Используем свою модель пользователей
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'Project.urls'
@@ -84,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Project', # Имя базы данных
         'USER': 'postgres', # Имя пользователя PostgreSQL
-        'PASSWORD': 'parol',# Пароль пользователя PostgreSQL
+        'PASSWORD': 'pas123',# Пароль пользователя PostgreSQL
         'HOST': 'localhost',  # Адрес сервера PostgreSQL
         'PORT': '5432',  # Порт для подключения
 
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
