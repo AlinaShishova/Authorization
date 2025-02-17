@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+    <header>
+        <h1>Главная страница. Пользователь авторизован.</h1>
+    </header>
+
+    <hr>
+    <a href="{% url 'page1' %}">Перейти на Страницу 1</a> |
+    <a href="{% url 'page2' %}">Перейти на Страницу 2</a> | 
+    <a href="{% url 'page3' %}">Перейти на Страницу 3</a>
+
+</body>
+</html>

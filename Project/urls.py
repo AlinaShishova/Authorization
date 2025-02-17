@@ -17,10 +17,7 @@ Including another URLconf
 # project/urls.py
 from django.contrib import admin
 from django.urls import path, include
-from django.http import HttpResponse
-
-def home(request):
-    return HttpResponse("Главная страница. Пользователь аутентифицирован.")
+from .view import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
