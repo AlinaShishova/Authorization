@@ -15,6 +15,4 @@ urlpatterns = [
     path('page3/edit/', edit_item3, name='edit_item3'),
 
     
-
-    
 ]

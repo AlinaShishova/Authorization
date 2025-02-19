@@ -9,6 +9,10 @@ class Page(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = ('Страница')  # Единственное число
+        verbose_name_plural = ('Страницы')  # Множественное число
 
 class PageManager(models.Model):
     """Модель для хранения менеджеров страниц"""
@@ -17,6 +21,11 @@ class PageManager(models.Model):
 
     class Meta:
         unique_together = ('user', 'page')  # Один пользователь не может быть менеджером одной страницы дважды
+        
 
     def __str__(self):
         return f"{self.user.username} - Менеджер {self.page.name}"
+    
+    class Meta:
+        verbose_name = ('Менеджер страницы')  # Единственное число
+        verbose_name_plural = ('Менеджеры страницы')  # Множественное число

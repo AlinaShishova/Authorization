@@ -1,20 +1,45 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import user_passes_test, login_required
+from django.core.exceptions import PermissionDenied
+from functools import wraps
+from cubs.models import Page, PageManager
+
+
+
+"""Декоратор для проверки, является ли пользователь менеджером страницы."""
+def manager_required(page_slug):
+    def decorator (view_func):
+        @wraps(view_func)
+        def _wrapped_view(request, *args, **kwargs):
+        
+            # Проверяем, является ли пользователь менеджером
+            if not PageManager.objects.filter(user=request.user, page__slug=page_slug).exists():
+                raise PermissionDenied("Доступ запрещен")
+
+            return view_func(request, *args, **kwargs)
+
+        return _wrapped_view
+    return decorator
 
 
 """Страницы с кнопками управления"""
 
 # Первая страница
+@manager_required("page1")
 def page1(request):
-    return render(request, 'page1.html')
+    return render(request, "page1.html")
+
 
 # Вторая страница
+@manager_required("page2")
 def page2(request):
-    return render(request, 'page2.html')
+    return render(request, "page2.html")
+
 
 # Третья страница
+@manager_required("page3")
 def page3(request):
-    return render(request, 'page3.html')
+    return render(request, "page3.html")
 
 
 
